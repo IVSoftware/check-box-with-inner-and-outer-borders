@@ -21,8 +21,8 @@ namespace toggle_button
             _innerBorder = new ContentView
             {
                 Content = _impl,
-                Margin = new Thickness(2),
-                Padding = new Thickness(2),
+                Padding = InnerBorderWidth,
+                Margin = OuterBorderWidth,
                 BackgroundColor = Colors.WhiteSmoke,
             };
             _impl.Clicked += (sender, e) =>
@@ -73,6 +73,35 @@ namespace toggle_button
         }
         Color _uncheckedColor = Colors.White;
 
+        public Color OuterBorderColor
+        {
+            get => _outerBorderColor;
+            set
+            {
+                if (!Equals(_outerBorderColor, value))
+                {
+                    _outerBorderColor = value;
+                    BackgroundColor = OuterBorderColor;
+                }
+            }
+        }
+        Color _outerBorderColor = default;
+        public Color InnerBorderColor
+        {
+            get => _innerBorderColor;
+            set
+            {
+                if (!Equals(_innerBorderColor, value))
+                {
+                    _innerBorderColor = value;
+                    _innerBorder.BackgroundColor = InnerBorderColor;
+                }
+            }
+        }
+        Color _innerBorderColor = default;
+
+
+
         public double Dimension
         {
             get => _dimension;
@@ -88,6 +117,33 @@ namespace toggle_button
         }
         double _dimension = default;
 
+        public int OuterBorderWidth
+        {
+            get => _outerBorderWidth;
+            set
+            {
+                if (!Equals(_outerBorderWidth, value))
+                {
+                    _outerBorderWidth = value;
+                    _innerBorder.Margin = OuterBorderWidth;
+                }
+            }
+        }
+        int _outerBorderWidth = 2;
+
+        public int InnerBorderWidth
+        {
+            get => _innerBorderWidth;
+            set
+            {
+                if (!Equals(_innerBorderWidth, value))
+                {
+                    _innerBorderWidth = value;
+                    _innerBorder.Padding = InnerBorderWidth;
+                }
+            }
+        }
+        int _innerBorderWidth = 2;
 
         private readonly ContentView _innerBorder;
         private readonly Button _impl;

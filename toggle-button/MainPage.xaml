@@ -23,6 +23,29 @@
             <local:CheckBoxEx
                 Dimension="30"
                 HorizontalOptions="Center" />
+            
+            <Label 
+                HorizontalTextAlignment="Center"
+                Text="Style Test"/>
+
+            <!--Style Test-->
+            <local:CheckBoxEx
+                Dimension="30"
+                CheckedColor="Yellow"
+                OuterBorderColor="Fuchsia"
+                InnerBorderColor="Aqua"
+                OuterBorderWidth="3"
+                InnerBorderWidth="3"
+                HorizontalOptions="Center" />
+            
+            <local:CheckBoxEx
+                Dimension="30"
+                CheckedColor="Yellow"
+                OuterBorderColor="Fuchsia"
+                InnerBorderColor="Aqua"
+                OuterBorderWidth="3"
+                InnerBorderWidth="3"
+                HorizontalOptions="Center" />
 
             <Button
                 x:Name="CounterBtn"
