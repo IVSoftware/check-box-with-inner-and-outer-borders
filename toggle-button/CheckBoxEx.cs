@@ -6,7 +6,7 @@ namespace toggle_button
     {
         public CheckBoxEx()
         {
-            BackgroundColor = Colors.Black;
+            BackgroundColor = OuterBorderColor;
             Padding = new Thickness(0);
             _impl = new Button
             {
@@ -23,7 +23,7 @@ namespace toggle_button
                 Content = _impl,
                 Padding = InnerBorderWidth,
                 Margin = OuterBorderWidth,
-                BackgroundColor = Colors.WhiteSmoke,
+                BackgroundColor = InnerBorderColor,
             };
             _impl.Clicked += (sender, e) =>
             {
@@ -87,7 +87,7 @@ namespace toggle_button
                 }
             }
         }
-        Color _outerBorderColor = default;
+        Color _outerBorderColor = Colors.Black;
         public Color InnerBorderColor
         {
             get => _innerBorderColor;
@@ -100,8 +100,7 @@ namespace toggle_button
                 }
             }
         }
-        Color _innerBorderColor = default;
-
+        Color _innerBorderColor = Colors.WhiteSmoke;
 
 
         public double Dimension

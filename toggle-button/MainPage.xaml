@@ -21,7 +21,8 @@
                     x:Name="CheckBox1"
                     Dimension="30"
                     HorizontalOptions="Center" 
-                    IsCheckedChanged="Any_CheckedChanged"/>
+                    IsCheckedChanged="Any_CheckedChanged"
+                    IsChecked="True"/>
 
                 <local:CheckBoxEx
                     x:Name="CheckBox2"
@@ -43,7 +44,8 @@
                     OuterBorderWidth="3"
                     InnerBorderWidth="3"
                     HorizontalOptions="Center"
-                    IsCheckedChanged="Any_CheckedChanged" />
+                    IsCheckedChanged="Any_CheckedChanged"
+                    IsChecked="True"/>
 
                 <local:CheckBoxEx
                     x:Name="Styled2"

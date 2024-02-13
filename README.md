@@ -19,12 +19,11 @@ You could "almost" just make a custom `Button` with an `IsChecked` property but 
 [![android and iPhone showing checkboxes][1]][1]
 
 
-```csharp
-public class CheckBoxEx : ContentView
+```csharppublic class CheckBoxEx : ContentView
 {
     public CheckBoxEx()
     {
-        BackgroundColor = Colors.Black;
+        BackgroundColor = OuterBorderColor;
         Padding = new Thickness(0);
         _impl = new Button
         {
@@ -41,7 +40,7 @@ public class CheckBoxEx : ContentView
             Content = _impl,
             Padding = InnerBorderWidth,
             Margin = OuterBorderWidth,
-            BackgroundColor = Colors.WhiteSmoke,
+            BackgroundColor = InnerBorderColor,
         };
         _impl.Clicked += (sender, e) =>
         {
@@ -105,7 +104,7 @@ public class CheckBoxEx : ContentView
             }
         }
     }
-    Color _outerBorderColor = default;
+    Color _outerBorderColor = Colors.Black;
     public Color InnerBorderColor
     {
         get => _innerBorderColor;
@@ -118,7 +117,8 @@ public class CheckBoxEx : ContentView
             }
         }
     }
-    Color _innerBorderColor = default;
+    Color _innerBorderColor = Colors.WhiteSmoke;
+
 
     public double Dimension
     {
@@ -165,6 +165,7 @@ public class CheckBoxEx : ContentView
 
     private readonly ContentView _innerBorder;
     private readonly Button _impl;
+}
 }
 ```
 
