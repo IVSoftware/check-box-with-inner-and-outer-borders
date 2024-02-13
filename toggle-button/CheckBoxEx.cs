@@ -2,9 +2,9 @@
 
 namespace toggle_button
 {
-    public class ToggleButton : ContentView
+    public class CheckBoxEx : ContentView
     {
-        public ToggleButton()
+        public CheckBoxEx()
         {
             BackgroundColor = Colors.Black;
             Padding = new Thickness(0);
@@ -44,6 +44,7 @@ namespace toggle_button
                 }
             }
         }
+        bool _isChecked = false;
         public Color CheckedColor
         {
             get => _checkedColor;
@@ -72,24 +73,21 @@ namespace toggle_button
         }
         Color _uncheckedColor = Colors.White;
 
-
-
-        public double StrokeThickness => ((IButtonStroke)_impl).StrokeThickness;
-
-        bool _isChecked = false;
-        protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public double Dimension
         {
-            switch (propertyName)
+            get => _dimension;
+            set
             {
-                case nameof(Width):
-                    HeightRequest = WidthRequest;
-                    break;
-                case nameof(Height):
-                    WidthRequest = HeightRequest;
-                    break;
+                if (!Equals(_dimension, value))
+                {
+                    _dimension = value;
+                    HeightRequest = Dimension;
+                    WidthRequest = Dimension;
+                }
             }
-            base.OnPropertyChanged(propertyName);
         }
+        double _dimension = default;
+
 
         private readonly ContentView _innerBorder;
         private readonly Button _impl;
