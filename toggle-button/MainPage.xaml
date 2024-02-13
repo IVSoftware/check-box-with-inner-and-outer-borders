@@ -4,57 +4,80 @@
              xmlns:local="clr-namespace:toggle_button"
              x:Class="toggle_button.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout
+                Spacing="25"
+                Padding="30,0"
+                VerticalOptions="Center">
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+                <Image
+                    Source="dotnet_bot.png"
+                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                    HeightRequest="200"
+                    HorizontalOptions="Center" />
 
-            <local:CheckBoxEx
-                Dimension="30"
-                HorizontalOptions="Center" />
+                <local:CheckBoxEx
+                    x:Name="CheckBox1"
+                    Dimension="30"
+                    HorizontalOptions="Center" 
+                    IsCheckedChanged="Any_CheckedChanged"/>
 
-            <local:CheckBoxEx
-                Dimension="30"
-                HorizontalOptions="Center" />
+                <local:CheckBoxEx
+                    x:Name="CheckBox2"
+                    Dimension="30"
+                    HorizontalOptions="Center"
+                    IsCheckedChanged="Any_CheckedChanged" />
             
-            <Label 
-                HorizontalTextAlignment="Center"
-                Text="Style Test"/>
+                <Label 
+                    HorizontalTextAlignment="Center"
+                    Text="Style Test"/>
 
-            <!--Style Test-->
-            <local:CheckBoxEx
-                Dimension="30"
-                CheckedColor="Yellow"
-                OuterBorderColor="Fuchsia"
-                InnerBorderColor="Aqua"
-                OuterBorderWidth="3"
-                InnerBorderWidth="3"
-                HorizontalOptions="Center" />
-            
-            <local:CheckBoxEx
-                Dimension="30"
-                CheckedColor="Yellow"
-                OuterBorderColor="Fuchsia"
-                InnerBorderColor="Aqua"
-                OuterBorderWidth="3"
-                InnerBorderWidth="3"
-                HorizontalOptions="Center" />
+                <!--Style Test-->
+                <local:CheckBoxEx
+                    x:Name="Styled1"
+                    Dimension="30"
+                    CheckedColor="Yellow"
+                    OuterBorderColor="Fuchsia"
+                    InnerBorderColor="Aqua"
+                    OuterBorderWidth="3"
+                    InnerBorderWidth="3"
+                    HorizontalOptions="Center"
+                    IsCheckedChanged="Any_CheckedChanged" />
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+                <local:CheckBoxEx
+                    x:Name="Styled2"
+                    Dimension="30"
+                    CheckedColor="Yellow"
+                    OuterBorderColor="Fuchsia"
+                    InnerBorderColor="Aqua"
+                    OuterBorderWidth="3"
+                    InnerBorderWidth="3"
+                    HorizontalOptions="Center"
+                    IsCheckedChanged="Any_CheckedChanged" />
 
-        </VerticalStackLayout>
-    </ScrollView>
+                <Button
+                    x:Name="CounterBtn"
+                    Text="Click me"
+                    SemanticProperties.Hint="Counts the number of times you click"
+                    Clicked="OnCounterClicked"
+                    HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </ScrollView>
+        <Grid x:Name="overlay" IsVisible="false" RowDefinitions="*,Auto,*">
+            <ContentView Grid.Row="0" BackgroundColor="Gray" Opacity="0.5"/>
+            <Label
+                x:Name="labelMessage"
+                Grid.Row="1"
+                Text="Your message here"
+                BackgroundColor="Azure"
+                TextColor="Red"
+                HeightRequest="100"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"/>
+            <ContentView Grid.Row="2" BackgroundColor="Gray" Opacity="0.5"/>
+        </Grid>
+    </Grid>
 
 </ContentPage>

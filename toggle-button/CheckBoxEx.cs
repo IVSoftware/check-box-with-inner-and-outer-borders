@@ -31,6 +31,7 @@ namespace toggle_button
             };
             Content = _innerBorder;
         }
+        public event EventHandler IsCheckedChanged;
         public bool IsChecked
         {
             get => _isChecked;
@@ -39,7 +40,8 @@ namespace toggle_button
                 if (!Equals(_isChecked, value))
                 {
                     _isChecked = value;
-                    _impl.BackgroundColor = IsChecked ? CheckedColor : UncheckedColor;
+                    _impl.BackgroundColor = IsChecked ? CheckedColor : UncheckedColor; 
+                    IsCheckedChanged?.Invoke(this, EventArgs.Empty);
                     OnPropertyChanged();
                 }
             }
